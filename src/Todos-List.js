@@ -11,6 +11,7 @@ class TodosList extends Component {
   //#2 For each todo we return a new TodosListItem &
   //#3 using the spread we return each object in the todos array individually
   renderItems() {
+
     const props = _.omit(this.props, 'todos');
 
     return _.map(this.props.todos, (todo, index) =>
@@ -19,12 +20,14 @@ class TodosList extends Component {
 
   render() {
     return (
+      <div>
       <table>
         <TodosListHeader />
         <tbody>
           {this.renderItems()}
         </tbody>
       </table>
+      </div>
     );
   }
 }

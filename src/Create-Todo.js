@@ -16,13 +16,19 @@ class CreateTodo extends Component {
       }
 }
 
+componentDidMount(){
+   this.refs.createInput.focus();
+ }
+
   render() {
     return (
+      <div>
       <form onSubmit={this.handleCreate.bind(this)}>
         <input type="text" placeholder="What do I need to do?" ref="createInput"/>
         <button>Create</button>
         {this.renderError()}
       </form>
+      </div>
     );
   }
 
@@ -42,6 +48,7 @@ class CreateTodo extends Component {
     this.setState({ error: null });
     this.props.createTask(task);
     this.refs.createInput.value = '';
+    this.refs.createInput.focus();
   }
 
   validateInput(task) {

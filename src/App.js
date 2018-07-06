@@ -6,14 +6,14 @@ import CreateTodo from './Create-Todo';
 
 //todos is dummy data since we are not using api/data fetch
 const todos = [
-  {
-    task: 'make React to do list',
-    isComplete: false
-  },
-  {
-    task: 'eat dinner',
-    isComplete: true
-  }
+  // {
+  //   task: 'make React to do list',
+  //   isComplete: false
+  // },
+  // {
+  //   task: 'eat dinner',
+  //   isComplete: true
+  // }
 ];
 
 
@@ -25,7 +25,6 @@ class App extends Component {
     }
   }
 
-  //@ about 38mins
   toggleTask(task) {
    const foundToDo = _.find(this.state.todos, todo => todo.task === task) ;
    foundToDo.isComplete = !foundToDo.isComplete;
@@ -60,20 +59,29 @@ deleteTask(taskToDelete) {
 
   render() {
     return (
-      <div className="container m-5">
-        <div className="row">
-          <div className="col-md-12 ">
+      <div className="container mt-5">
+        <div className="row align-items-center justify-content-center">
+          <div className="col-md-4 text-center p-5">
 
 
-          <h1>Tony's Task Manager</h1>
-          <CreateTodo todos={this.state.todos} createTask={this.createTask.bind(this)} />
+          <h1>Task Manager</h1>
+          <CreateTodo todos={this.state.todos} createTask={this.createTask.bind(this)}/>
+            <div className="ml-4">
             <TodosList
             todos={this.state.todos}
             toggleTask={this.toggleTask.bind(this)}
             saveTask={this.saveTask.bind(this)}
             deleteTask={this.deleteTask.bind(this)}
              />
+             </div>
           </div>
+        </div>
+
+        <div className="row">
+          <footer className="col-12">
+            <a href="http://www.CarbettaCoding.com" target="_blank"><img src="https://i.imgur.com/2RiypHA.png" className="footer-img mx-auto d-block mt-5 mb-0" alt="CarbettaCoding.com"/>
+            </a>
+          </footer>
         </div>
       </div>
     );
